@@ -31,9 +31,13 @@ pipeline{
       }
       steps{
         withSonarQubeEnv('sonarserver'){
-          sh """
-          ${scannerHome}/bin/sonar-scanner
-          """
+          sh '''
+            sonar-scanner \
+            -Dsonar.projectKey=java \
+            -Dsonar.projectName=java \
+            -Dsonar.sources=. \
+            -Dsonar.java.binaries=ta0rget/classes
+          '''
         }
       }
     }
