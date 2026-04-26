@@ -28,7 +28,10 @@ pipeline {
     stage('Buld Artifacts'){
       steps{
         dir('client'){
-          sh 'ng build --prod'
+          sh '''
+          npm install
+          npx ng build --configuration production
+          '''
         }
       }
     }
