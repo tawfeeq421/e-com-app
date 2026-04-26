@@ -68,11 +68,30 @@ pipeline {
         sh '''
         trivy fs . \
         --severity HIGH,CRITICAL \
-        --format html \
+        --format table \
         --no-progress \
-        -o trivy-report.html
+        -o trivy-report.txt
         '''
       }
+    }
+  }
+  post{
+    always{
+      archiveArtifacts artifacts: 'trivy-report.txt' fingerprint: true
+    }
+    success{
+      slackSend(
+        channel: "#e-com"\
+        color: "good"
+        message: "✅ SUCCESS: ${env.JOB_NAME} ${env.BUILD_NUMBER}\n url ${env.BUILD_URL}"
+      )
+    }
+    failure{
+      slackSend(
+        channel: "#e-com"
+        color: "danger"
+        message: "❌ FAILURE: ${env.JOB_NAME} ${env.BUILD_NUMBER}\nCheck Logs ${env.BUILD_URL}"
+      )
     }
   }
 }
