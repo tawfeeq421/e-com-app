@@ -31,12 +31,7 @@ pipeline{
       }
       steps{
         withSonarQubeEnv('sonarserver'){
-          sh '''
-            sonar-scanner \
-            -Dsonar.projectKey=ecom-app \
-            -Dsonar.projectName=ecom-app \
-            -Dsonar.sources=. \
-          '''
+          sh "${scannerHome}/bin/sonar-scanner"
         }
       }
     }
