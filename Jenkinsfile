@@ -34,7 +34,7 @@ pipeline{
           sh '''
             sonar-scanner \
             -Dsonar.projectKey=ecom-app \
-            -Dsonar.projectName=acom-app \
+            -Dsonar.projectName=ecom-app \
             -Dsonar.sources=. \
           '''
         }
