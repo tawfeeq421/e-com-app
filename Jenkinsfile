@@ -29,7 +29,6 @@ pipeline {
       steps{
         dir('client'){
           sh '''
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm install
           npx ng build --configuration production
           '''
