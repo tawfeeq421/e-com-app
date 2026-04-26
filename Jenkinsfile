@@ -29,7 +29,7 @@ pipeline{
       environment{
         scannerHome = tool 'sonar'
       }
-      stage{
+      steps{
         withSonarQubeEnv('sonarserver'){
           sh """
           ${scannerHome}/bin/sonar-scanner
