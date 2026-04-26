@@ -20,7 +20,7 @@ pipeline {
         dir('client'){
           sh '''
           npm install 
-          npm install @agnular/cli
+          npm install @agular/cli
           '''
         }
       }
