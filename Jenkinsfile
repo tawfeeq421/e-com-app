@@ -33,10 +33,9 @@ pipeline{
         withSonarQubeEnv('sonarserver'){
           sh '''
             sonar-scanner \
-            -Dsonar.projectKey=java \
-            -Dsonar.projectName=java \
+            -Dsonar.projectKey=ecom-app \
+            -Dsonar.projectName=acom-app \
             -Dsonar.sources=. \
-            -Dsonar.java.binaries=target/classes
           '''
         }
       }
