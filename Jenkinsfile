@@ -12,7 +12,7 @@ pipeline{
         }
         stage('Checkout SCM'){
             steps{
-                git branch: 'node' url: 'https://github.com/tawfeeq421/e-com-app.git'
+                git branch: 'node', url: 'https://github.com/tawfeeq421/e-com-app.git'
             }
         }
         stage('Install Dependency'){
