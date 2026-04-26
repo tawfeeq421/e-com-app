@@ -12,7 +12,7 @@ pipeline{
     }
     stage('Checkout SCM'){
       steps{
-        git branch: 'java' url: 'https://github.com/tawfeeq421/e-com-app.git'
+        git branch: 'java', url: 'https://github.com/tawfeeq421/e-com-app.git'
       }
     }
     stage('Build'){
